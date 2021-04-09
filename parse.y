@@ -255,12 +255,27 @@ EMPTY: ;
 #include "scan.cpp"
 
 
-int scan_main()
+int scan1_main()
+{
+    while (int token = yylex())
+    {
+        if (token != Newline && token != Indent && token != Dedent && token != EndMarker)
+        {
+            cout << "Token = " << token_image(token) << "\t\t";
+            cout << "Lexeme = \"" << yytext << "\"";
+            cout << endl;
+        }
+    }
+    return 0;
+}
+
+int scan2_main()
 {
     while (int token = yylex())
     {
         cout << "Token = " << token_image(token) << "\t\t";
-        cout << "Lexeme = \"" << yytext << "\"";
+        if (token != Newline && token != Indent && token != Dedent && token != EndMarker)
+            cout << "Lexeme = \"" << yytext << "\"";
         cout << endl;
     }
     return 0;
@@ -275,10 +290,13 @@ int main(int argc, char *argv[])
 {
     int opt;
     while (true)
-        switch ( opt = getopt(argc, argv, "123456789:") )
+        switch ( opt = getopt(argc, argv, "0123456789:") )
         {
+            case '0':
+                scan1_main();
+                break;
             case '1':
-                scan_main();
+                scan2_main();
                 break;
             case '2':
                 parse_main();
