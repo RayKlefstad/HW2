@@ -15,4 +15,6 @@ clean:
 	/bin/rm -f scan.cpp parser parse.tab.cpp parse.output test.out
 
 test: parser
-	./parser -2 < test.py > test.out
+	./parser -0 < test.py > test.scan1
+	./parser -1 < test.py > test.scan2
+	./parser -2 < test.py > test.parse
