@@ -12,7 +12,7 @@ scan.cpp: scan.l
 	flex -t scan.l > scan.cpp
 
 clean:
-	/bin/rm -f scan.cpp parser parse.tab.cpp parse.output test.out
+	/bin/rm -f scan.cpp parser parse.tab.cpp parse.output test.scan1 test.scan2 test.parse
 
 test: parser
 	./parser -0 < test.py > test.scan1
