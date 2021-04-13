@@ -79,6 +79,7 @@ compound_stmt:
 type:
     Ident
 |   String
+|   '[' type ']'
 ;
 
 decl:
@@ -173,16 +174,16 @@ inversion:
 ;
 
 relation:
-    sum EQ sum
-|   sum NE sum
-|   sum '<' sum
-|   sum LE sum
-|   sum '>' sum
-|   sum GE sum
-|   sum In sum
-|   sum Not In sum
-|   sum Is sum
-|   sum Is Not sum
+    relation EQ sum
+|   relation NE sum
+|   relation '<' sum
+|   relation LE sum
+|   relation '>' sum
+|   relation GE sum
+|   relation In sum
+|   relation Not In sum
+|   relation Is sum
+|   relation Is Not sum
 |   sum
 ;
 
